@@ -9,13 +9,16 @@ null： Null类型，代表“空值”，代表一个空对象指针，使用ty
 undefined： Undefined类型，当一个声明了一个变量未初始化时，得到的就是undefined。
 
 ```javascript
-    nullAndundefined.js
+    null和undefined.js
 ```
 
 3. typeof 和 instanceof
+- instanceof用于判断对象变量是否对象实例
+- typeof判断对象类型
 
-
-
+```javascript
+    typeDemo.js
+```
 4. 变量作用域
 
 要搞清楚一个变量的作用域，重点是搞清楚预解析顺序，然后再判断作用域的范围，这些都是有套路可言：
@@ -31,7 +34,14 @@ undefined： Undefined类型，当一个声明了一个变量未初始化时，�
 
 5. 闭包
 
+
+
+
 6. this 使用
+
+```javascript
+    thisDemo.js
+```
 
 7. 原型链
 
@@ -47,4 +57,4 @@ undefined： Undefined类型，当一个声明了一个变量未初始化时，�
 
 
 
-1111. 
+1111.
