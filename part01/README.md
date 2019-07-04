@@ -33,8 +33,40 @@ undefined： Undefined类型，当一个声明了一个变量未初始化时，�
 
 
 5. 闭包
+闭包就是将函数内部和函数外部连接起来的一座桥梁,它的主要作用：
+- 读取函数内部变量
+- 让变量保持在内存中
 
+使用实战一、
+```javascript
+//计数器
+function addCount1(){
+    var count = 0;
 
+    return function(){
+        count ++;
+        console.log(count);
+    }
+}
+
+function addCount2(){
+    var count = 0;
+
+    return function(){
+        count ++;
+        console.log(count);
+    }
+}
+var c1 = addCount1();
+c1();
+c1();
+c1();
+var c2 = addCount2();
+c2();
+c2();
+c2();
+
+```
 
 
 6. this 使用
