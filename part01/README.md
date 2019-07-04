@@ -72,6 +72,7 @@ c2();
 6. this 使用
 
 ```javascript
+// 实例文件：thisDemo.js
 //this在普通的方法中执行全局变量
 var a = "top a !";
 function test1(){
