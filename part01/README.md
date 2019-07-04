@@ -37,8 +37,9 @@ undefined： Undefined类型，当一个声明了一个变量未初始化时，�
 - 读取函数内部变量
 - 让变量保持在内存中
 
-使用实战一、
+
 ```javascript
+//使用实战一、
 //计数器
 function addCount1(){
     var count = 0;
