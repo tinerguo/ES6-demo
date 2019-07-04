@@ -1,4 +1,4 @@
-#javascript基础
+# javascript基础
 
 1. JAVASCRIPT 对象类型
 基础类型：number 、boolean、string、null、undefined
@@ -69,9 +69,28 @@ c2();
 
 ```
 
+```javascript
+//定时器
+//方法1：
+for (var i = 0; i < 4; i++) {
+    (function(i){
+        setTimeout(function() {
+          console.log(i);
+        }, 300);
+    })(i);
+}
+//方法2：
+for (var i = 0; i < 4; i++) {
+        setTimeout((function(){
+            var temp = i;
+            return function(){
+                console.log(temp);
+            }
+        })(i), 300);
+}
+```
 
 6. this 使用
-
 ```javascript
 // 实例文件：thisDemo.js
 //this在普通的方法中执行全局变量
