@@ -20,10 +20,30 @@ showbak2();
 
 
 function list(){
-    console.log(Array.prototype.slice.call(arguments) );
+    //console.log(Array.prototype.slice.call(arguments) );
 }
 
 var list1 = list(1,2,3);
 var setParamsList = list.bind(undefined,37);
 setParamsList();
 setParamsList(1,2,3);
+
+
+
+
+//和setTimeout一起使用
+function Bloomer() {
+  this.petalCount = Math.ceil(Math.random() * 12) + 1;
+}
+
+Bloomer.prototype = {
+    bloom:function() {
+      setTimeout(this.declare.bind(this), 4000);
+    },
+    declare:function(){
+        console.log(this.petalCount);
+    }
+}
+
+var b = new Bloomer();
+b.bloom();

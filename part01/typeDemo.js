@@ -1,3 +1,4 @@
+
 //instanceof
 console.log("Object instanceof Object",Object instanceof Object);//true
 console.log("Function instanceof Function",Function instanceof Function);//true
@@ -22,3 +23,21 @@ var f = new Fun();
 console.log("typeof Fun",typeof Fun);//function
 console.log("typeof f",typeof f);//object
 console.log("typeof []",typeof []);//object
+
+
+
+
+
+
+//准确判断一个对象是否数组
+ var arr1 = [1,2,3];
+ var arr2 = new Array([1,2,3]);
+ console.log(arr1.__proto__==Array.prototype);
+ console.log(arr2.__proto__==Array.prototype);
+
+console.log( arr1 instanceof Array);     // true;
+console.log( arr2 instanceof Array);     // true;
+console.log(Array.isArray(arr1));
+console.log(Array.isArray(arr2));
+
+console.log(Object.prototype.toString.call(arr1));  //'[object Array]'

@@ -18,6 +18,48 @@ undefined： Undefined类型，当一个声明了一个变量未初始化时，�
 
 ```javascript
     typeDemo.js
+
+
+
+    //instanceof
+    console.log("Object instanceof Object",Object instanceof Object);//true
+    console.log("Function instanceof Function",Function instanceof Function);//true
+    console.log("Number instanceof Number",Number instanceof Number);//false
+    console.log("String instanceof String",String instanceof String);//false
+    console.log("Function instanceof Object",Function instanceof Object);//true
+    function Foo(){}
+    console.log("Foo instanceof Object",Foo instanceof Object);//true
+    console.log("Foo instanceof Function",Foo instanceof Function);//true
+    console.log("Foo instanceof Foo",Foo instanceof Foo);//false
+
+    //typeof
+    console.log("typeof 2",typeof 2);//number
+    console.log("typeof ''",typeof "");//string
+    console.log("typeof new String('')",typeof new String(""));//object
+    console.log("typeof null",typeof null);//object
+    console.log("typeof undefined",typeof undefined);//undefined
+    console.log("typeof false",typeof false);//boolean
+
+    function Fun(){}
+    var f = new Fun();
+    console.log("typeof Fun",typeof Fun);//function
+    console.log("typeof f",typeof f);//object
+    console.log("typeof []",typeof []);//object
+
+    //准确判断一个对象是否数组
+     var arr1 = [1,2,3];
+     var arr2 = new Array([1,2,3]);
+     console.log(arr1.__proto__==Array.prototype);
+     console.log(arr2.__proto__==Array.prototype);
+
+    console.log( arr1 instanceof Array);     // true;
+    console.log( arr2 instanceof Array);     // true;
+    console.log(Array.isArray(arr1));
+    console.log(Array.isArray(arr2));
+
+    console.log(Object.prototype.toString.call(arr1));  //'[object Array]'
+
+
 ```
 4. 变量作用域
 
@@ -205,7 +247,7 @@ for(var j =0;j<op.length;j++){
 7. 原型链
 
 
-99. call 和 apply 的解析和区别，bind的使用
+8. call 和 apply 的解析和区别，bind的使用
 
 ```javascript
 var name = 'user';
@@ -241,10 +283,46 @@ setParamsList(1,2,3);
 
 ```
 
-100. 跨域
+
+```javascript
+//和setTimeout一起使用
+function Bloomer() {
+  this.petalCount = Math.ceil(Math.random() * 12) + 1;
+}
+
+Bloomer.prototype = {
+    bloom:function() {
+      setTimeout(this.declare.bind(this), 4000);
+    },
+    declare:function(){
+        console.log(this.petalCount);
+    }
+}
+
+var b = new Bloomer();
+b.bloom();
+```
 
 
-101. ajax 请求
+9. 跨域
+解释：协议、端口、域名有任何一个不同就是跨域。是浏览器的一个保护机制（同源策略）.
+- jsonp 是可以通过浏览器支持js访问不同源的文件的特性，使用回调函数进行请求服务器解决跨域问题。
+- 使用iframe的时候可以使用window.postMessage 进行通讯
+- CORS方案，方式：
+    向另外一个域提交一个option请求，服务器返回相应，如果允许那么再次发送一个正常的请求
+    header("Access-Control-Allow-Origin", "*");
+
+      
+10. ajax 请求
+
+
+11. javascript方法的类型
+
+```javascript
+
+
+
+```
 
 
 
