@@ -28,7 +28,45 @@ undefined： Undefined类型，当一个声明了一个变量未初始化时，�
 - 没有找到报错：如果所有的执行环境都没有找到，那么控制台就会报错变量找不到。
 
 ```javascript
-    作用域.js
+    //作用域.js
+    //如果在上层找不到变量，那么控制台报错
+    var a = 10;
+    function T1(){
+        console.log(a);//10
+    }
+    T1();
+
+    //查找上一层
+    var a = 10;
+    function T1(){
+        console.log(a);//10
+    }
+    T1();
+
+    //查找内部是否声明
+    var a = 10;
+    function T2(){
+        console.log(a);//undefined
+        if(true){
+            var a = 20;
+        }
+        console.log(a);//20
+    }
+
+    T2();
+
+    //测试未执行函数，只声明的情况
+    var a = 10;
+    function T3(){
+        console.log(a);
+        if(false){
+            var a = 20;
+        }
+        console.log(a);
+    }
+
+    T3();
+
 ```
 
 
@@ -39,8 +77,7 @@ undefined： Undefined类型，当一个声明了一个变量未初始化时，�
 
 
 ```javascript
-//使用实战一、
-//计数器
+//使用实战1计数器
 function addCount1(){
     var count = 0;
 
@@ -70,7 +107,7 @@ c2();
 ```
 
 ```javascript
-//定时器
+//使用实例2定时器
 //方法1：
 for (var i = 0; i < 4; i++) {
     (function(i){
@@ -125,18 +162,92 @@ test3.prototype = {
 var t3 = new test3();
 ```
 
+```javascript
+//获取多个元素并添加点击事件
+var op = document.querySelectAll("p");
+for(var j =0;j<op.length;j++){
+    op[j].onClick = function(){
+        console.log(j);
+    }
+}
+
+//方法1
+for(var j =0;j<op.length;j++){
+
+    op[j].onClick = (function(){
+        var temp= j;
+        return function(){
+            console.log(j);
+        }
+    })();
+}
+
+//方法2
+for(var j =0;j<op.length;j++){
+
+    op[j].onClick = (function(j){
+        return function(j){
+            console.log(j);
+        }
+    })(j);
+}
+
+//方法3
+for(var j =0;j<op.length;j++){
+    (function(j){
+        op[j].onClick = function(){
+            console.log(j);
+        }
+    })(j);
+}
+```
+
 7. 原型链
 
 
 99. call 和 apply 的解析和区别，bind的使用
 
+```javascript
+var name = 'user';
+var obj = {
+    name:'tiner',
+    show:function(){
+        console.log(this.name);
+    }
+}
+
+
+
+obj.show();
+var showbak = obj.show;
+showbak();
+//call 和 apply
+showbak.call(obj);
+showbak.apply(obj);
+//bind使用
+var showbak2 = showbak.bind(obj);
+showbak2();
+```
+bind还可以预设置参数
+```javascript
+function list(){
+    console.log(Array.prototype.slice.call(arguments) );
+}
+
+var list1 = list(1,2,3);
+var setParamsList = list.bind(undefined,37);//bind的第一个参数如果为undefined或者null的话，this指向全局
+setParamsList();
+setParamsList(1,2,3);
+
+```
 100. 跨域
 
 
 101. ajax 请求
 
+    
 
-
+102. dom 操作
 
 
 1111.

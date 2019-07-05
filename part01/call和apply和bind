@@ -1,0 +1,29 @@
+var name = 'user';
+var obj = {
+    name:'tiner',
+    show:function(){
+        //console.log(this.name);
+    }
+}
+
+
+
+obj.show();
+var showbak = obj.show;
+showbak();
+//call 和 apply
+showbak.call(obj);
+showbak.apply(obj);
+//bind使用
+var showbak2 = showbak.bind(obj);
+showbak2();
+
+
+function list(){
+    console.log(Array.prototype.slice.call(arguments) );
+}
+
+var list1 = list(1,2,3);
+var setParamsList = list.bind(undefined,37);
+setParamsList();
+setParamsList(1,2,3);

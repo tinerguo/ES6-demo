@@ -28,7 +28,7 @@ function addCount2(){
 
 for (var i = 0; i < 4; i++) {
   setTimeout(function() {
-    console.log(i);
+    // console.log(i);
   }, 300);
 }
 
@@ -36,7 +36,7 @@ for (var i = 0; i < 4; i++) {
 for (var i = 0; i < 4; i++) {
     (function(i){
         setTimeout(function() {
-          console.log(i);
+          // console.log(i);
         }, 300);
     })(i);
 }
@@ -45,7 +45,47 @@ for (var i = 0; i < 4; i++) {
         setTimeout((function(){
             var temp = i;
             return function(){
-                console.log(temp);
+                // console.log(temp);
             }
         })(i), 300);
+}
+
+
+
+//获取多个元素并添加点击事件
+var op = document.querySelectAll("p");
+for(var j =0;j<op.length;j++){
+    op[j].onClick = function(){
+        console.log(j);
+    }
+}
+
+//方法1
+for(var j =0;j<op.length;j++){
+
+    op[j].onClick = (function(){
+        var temp= j;
+        return function(){
+            console.log(j);
+        }
+    })();
+}
+
+//方法2
+for(var j =0;j<op.length;j++){
+
+    op[j].onClick = (function(j){
+        return function(j){
+            console.log(j);
+        }
+    })(j);
+}
+
+//方法3
+for(var j =0;j<op.length;j++){
+    (function(j){
+        op[j].onClick = function(){
+            console.log(j);
+        }
+    })(j);
 }
