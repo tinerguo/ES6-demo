@@ -24,11 +24,6 @@ console.log("typeof Fun",typeof Fun);//function
 console.log("typeof f",typeof f);//object
 console.log("typeof []",typeof []);//object
 
-
-
-
-
-
 //准确判断一个对象是否数组
  var arr1 = [1,2,3];
  var arr2 = new Array([1,2,3]);

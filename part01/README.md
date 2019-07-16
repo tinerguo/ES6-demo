@@ -283,9 +283,8 @@ setParamsList(1,2,3);
 
 ```
 
-
+和setTimeout一起使用
 ```javascript
-//和setTimeout一起使用
 function Bloomer() {
   this.petalCount = Math.ceil(Math.random() * 12) + 1;
 }
@@ -312,14 +311,28 @@ b.bloom();
     向另外一个域提交一个option请求，服务器返回相应，如果允许那么再次发送一个正常的请求
     header("Access-Control-Allow-Origin", "*");
 
-      
+
 10. ajax 请求
 
 
-11. javascript方法的类型
+
+11. javascript有几种函数
 
 ```javascript
 
+    //1.声明式函数
+        function fun(){}
+    //2.创建匿名函数表达式
+        var fun = function(){}
+    //3.创建具名函数表达式
+    //注意show只能在函数内部使用，不能再外部使用
+        var fun = function show(){}
+    //4.Function构造函数
+        new Function();
+    //5.自执行函数
+        (funtion(){})();
+    //6.其他创建函数的方式
+        eval、setTimeout、setInterval
 
 
 ```
